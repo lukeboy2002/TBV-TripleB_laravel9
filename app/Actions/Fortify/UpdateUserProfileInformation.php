@@ -18,9 +18,44 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
     public function update(User $user, array $input): void
     {
         Validator::make($input, [
-            'username' => ['required', 'string', 'alpha_dash', 'max:255', Rule::unique('users')->ignore($user->id)],
-            'email' => ['required', 'email', 'max:255', Rule::unique('users')->ignore($user->id)],
-            'photo' => ['nullable', 'mimes:jpg,jpeg,png', 'max:1024'],
+            'username' => [
+                'required',
+                'string',
+                'alpha_dash',
+                'max:255',
+                Rule::unique('users')->ignore($user->id)
+            ],
+            'nickname' => [
+                'nullable',
+                'string',
+                'max:255',
+            ],
+            'firstname' => [
+                'nullable',
+                'string',
+                'max:255',
+            ],
+            'lastname' => [
+                'nullable',
+                'string',
+                'max:255',
+            ],
+            'oneliner' => [
+                'nullable',
+                'string',
+                'max:255',
+            ],
+            'email' => [
+                'required',
+                'email',
+                'max:255',
+                Rule::unique('users')->ignore($user->id)
+            ],
+            'photo' => [
+                'nullable',
+                'mimes:jpg,jpeg,png',
+                'max:1024'
+            ],
         ])->validateWithBag('updateProfileInformation');
 
         if (isset($input['photo'])) {
@@ -33,6 +68,10 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
         } else {
             $user->forceFill([
                 'username' => $input['username'],
+                'nickname' => $input['nickname'],
+                'firstname' => $input['firstname'],
+                'lastname' => $input['lastname'],
+                'oneliner' => $input['oneliner'],
                 'email' => $input['email'],
             ])->save();
         }
@@ -47,6 +86,10 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
     {
         $user->forceFill([
             'username' => $input['username'],
+            'nickname' => $input['nickname'],
+            'firstname' => $input['firstname'],
+            'lastname' => $input['lastname'],
+            'oneliner' => $input['oneliner'],
             'email' => $input['email'],
             'email_verified_at' => null,
         ])->save();

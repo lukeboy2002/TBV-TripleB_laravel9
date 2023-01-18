@@ -26,14 +26,15 @@ class SuperAdminSeeder extends Seeder
         ]);
 
         //generate image
-//        $username = get_initials($user->username);
-//        $id = $user->id.'.png';
-//        $path = '/images/avatars/';
-//        $imagePath = create_avatar($username, $id, $path);
-//
-//        //save image
-//        $user->avatar = $imagePath;
-//        $user->save();
+        //generate image
+        $username = get_initials($user->username);
+        $id = $user->id.'.png';
+        $path = '/images/avatars/';
+        $imagePath = create_avatar($username, $id, $path);
+
+        //save image
+        $user->profile_photo_path = $imagePath;
+        $user->save();
 
         $role = Role::select('id')->where('name', 'super-admin')->first();
 

@@ -21,8 +21,8 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('profile_photo_path', 2048)->nullable();
-            $table->string('profile_picture', 2048)->default('/images/profiles/default.png');
-            $table->string('profile_banner', 2048)->default('images/banners/default.jpg');
+            $table->string('profile_picture_path', 2048)->default('/images/profiles/default.png');
+            $table->string('profile_banner_path', 2048)->default('images/banners/default.jpg');
             $table->string('password');
             $table->boolean('logged_in')->default(0);
             $table->timestamp('last_login_time')->nullable();
