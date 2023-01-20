@@ -1,4 +1,6 @@
 import './bootstrap';
+import './switcher';
+import './leftslider';
 
 import Alpine from 'alpinejs';
 import focus from '@alpinejs/focus';

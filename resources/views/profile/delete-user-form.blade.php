@@ -21,7 +21,7 @@
         <!-- Delete User Confirmation Modal -->
         <x-jet-dialog-modal wire:model="confirmingUserDeletion">
             <x-slot name="title">
-                {{ __('Delete Account') }}
+                Delete Account
             </x-slot>
 
             <x-slot name="content">
@@ -36,6 +36,7 @@
 
                     <x-jet-input-error for="password" class="mt-2" />
                 </div>
+
             </x-slot>
 
             <x-slot name="footer">
