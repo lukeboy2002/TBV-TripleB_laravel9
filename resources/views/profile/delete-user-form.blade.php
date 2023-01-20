@@ -1,21 +1,19 @@
 <x-jet-action-section>
     <x-slot name="title">
-        {{ __('Delete Account') }}
+        Delete Account
     </x-slot>
 
     <x-slot name="description">
-        {{ __('Permanently delete your account.') }}
+        Permanently delete your account.
     </x-slot>
 
     <x-slot name="content">
-        <div class="max-w-xl text-sm text-gray-600">
-            {{ __('Once your account is deleted, all of its resources and data will be permanently deleted. Before deleting your account, please download any data or information that you wish to retain.') }}
+        <div class="max-w-xl text-sm text-gray-700 dark:text-white">
+            Once your account is deleted, all of its resources and data will be permanently deleted. Before deleting your account, please download any data or information that you wish to retain.
         </div>
 
         <div class="mt-5">
-            <x-jet-danger-button wire:click="confirmUserDeletion" wire:loading.attr="disabled">
-                {{ __('Delete Account') }}
-            </x-jet-danger-button>
+            <x-buttons.danger wire:click="confirmUserDeletion" wire:loading.attr="disabled" class="rounded-lg">Delete Account</x-buttons.danger>
         </div>
 
         <!-- Delete User Confirmation Modal -->
@@ -34,19 +32,15 @@
                                 wire:model.defer="password"
                                 wire:keydown.enter="deleteUser" />
 
-                    <x-jet-input-error for="password" class="mt-2" />
+                    <x-jet-input-error for="password" class="mt-2 w-3/4" />
                 </div>
 
             </x-slot>
 
             <x-slot name="footer">
-                <x-jet-secondary-button wire:click="$toggle('confirmingUserDeletion')" wire:loading.attr="disabled">
-                    {{ __('Cancel') }}
-                </x-jet-secondary-button>
+                <x-buttons.secundary class="rounded-lg" wire:click="$toggle('confirmingUserDeletion')" wire:loading.attr="disabled">Cancel</x-buttons.secundary>
 
-                <x-jet-danger-button class="ml-3" wire:click="deleteUser" wire:loading.attr="disabled">
-                    {{ __('Delete Account') }}
-                </x-jet-danger-button>
+                <x-buttons.danger class="rounded-lg" wire:click="deleteUser" wire:loading.attr="disabled">Delete Account</x-buttons.danger>
             </x-slot>
         </x-jet-dialog-modal>
     </x-slot>

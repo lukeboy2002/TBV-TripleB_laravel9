@@ -29,18 +29,18 @@
                         wire:model.defer="confirmablePassword"
                         wire:keydown.enter="confirmPassword" />
 
-            <x-jet-input-error for="confirmable_password" class="mt-2" />
+            <x-jet-input-error for="confirmable_password" class="mt-2 w-3/4" />
         </div>
     </x-slot>
 
     <x-slot name="footer">
-        <x-jet-secondary-button wire:click="stopConfirmingPassword" wire:loading.attr="disabled">
+        <x-buttons.secundary class="rounded-lg" wire:click="stopConfirmingPassword" wire:loading.attr="disabled">
             {{ __('Cancel') }}
-        </x-jet-secondary-button>
+        </x-buttons.secundary>
 
-        <x-jet-button class="ml-3" dusk="confirm-password-button" wire:click="confirmPassword" wire:loading.attr="disabled">
+        <x-buttons.default class="rounded-lg" dusk="confirm-password-button" wire:click="confirmPassword" wire:loading.attr="disabled">
             {{ $button }}
-        </x-jet-button>
+        </x-buttons.default>
     </x-slot>
 </x-jet-dialog-modal>
 @endonce
