@@ -19,6 +19,7 @@
     },
     "dependencies": {
         "@tailwindcss/aspect-ratio": "^0.4.2",
-        "@tailwindcss/line-clamp": "^0.4.2"
+        "@tailwindcss/line-clamp": "^0.4.2",
+        "tw-elements": "^1.0.0-alpha13"
     }
 }
