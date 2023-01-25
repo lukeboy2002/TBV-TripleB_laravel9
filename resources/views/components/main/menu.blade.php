@@ -1,4 +1,4 @@
-<div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
+<div class="mx-auto max-w-7xl px-4">
     <div class="relative flex h-16 items-center justify-between">
         <div class="absolute inset-y-0 left-0 flex items-center md:hidden">
             <button id="btnSidebarToggler" type="button" class="py-4 text-2xl text-gray-900 dark:text-white hover:text-orange-500 dark:hover:text-orange-500">

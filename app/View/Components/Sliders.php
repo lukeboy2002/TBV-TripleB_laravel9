@@ -5,7 +5,7 @@ namespace App\View\Components;
 use App\Models\Slide;
 use Illuminate\View\Component;
 
-class Slider extends Component
+class Sliders extends Component
 {
     /**
      * Create a new component instance.
@@ -26,7 +26,8 @@ class Slider extends Component
     {
         $slides = Slide::where('status', 1)->get();
 
-        return view('components.main.slider', [
+        return view('components.sliders', [
             'slides' => $slides,
-        ]);    }
+        ]);
+    }
 }

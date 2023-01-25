@@ -1,6 +1,6 @@
 <div class="hidden sm:block border-b border-gray-200 dark:border-gray-600">
     <div class="max-w-7xl mx-auto">
-        <div class="flex justify-around items-center py-4">
+        <div class="flex justify-between items-center p-4">
             <div>
                 <x-jet-application-logo />
             </div>

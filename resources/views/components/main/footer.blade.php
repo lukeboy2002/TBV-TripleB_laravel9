@@ -1,6 +1,6 @@
 <div class="bg-white dark:bg-gray-800 w-full">
     <div class="md:max-w-7x mx-auto md:flex justify-around items-center py-8 px-5 md:px-0">
-        {{--        <x-sponsors />--}}
+        <x-sponsors />
     </div>
 
     <div class="relative">
@@ -25,10 +25,7 @@
         <div>
             <div class="text-orange-500 font-black pb-3 uppercase">Laatse Nieuws</div>
             <div class="w-1/4 border-b-2 border-orange-500 mb-4"></div>
-            hier komen de newsberichten
-            {{--            @foreach($posts as $post)--}}
-            {{--                <x-posts.footer :post="$post" />--}}
-            {{--            @endforeach--}}
+            <x-posts-footer />
         </div>
         <!-- CONTACT -->
         <div class="mt-4">

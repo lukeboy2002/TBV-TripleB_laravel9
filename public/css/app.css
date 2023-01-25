@@ -766,6 +766,20 @@ video {
   margin-top: 0;
 }.prose :where(.prose > :last-child):not(:where([class~="not-prose"] *)) {
   margin-bottom: 0;
+}.aspect-w-10 {
+  position: relative;
+  padding-bottom: calc(var(--tw-aspect-h) / var(--tw-aspect-w) * 100%);
+  --tw-aspect-w: 10;
+}.aspect-w-10 > * {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}.aspect-h-7 {
+  --tw-aspect-h: 7;
 }:root {
   --bs-blue: #0d6efd;
   --bs-indigo: #6610f2;
@@ -2993,6 +3007,8 @@ video {
   grid-template-columns: repeat(1, minmax(0, 1fr));
 }.grid-cols-12 {
   grid-template-columns: repeat(12, minmax(0, 1fr));
+}.grid-cols-3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
 }.flex-row {
   flex-direction: row;
 }.flex-col {
@@ -3193,6 +3209,9 @@ video {
 }.bg-green-100 {
   --tw-bg-opacity: 1;
   background-color: rgb(220 252 231 / var(--tw-bg-opacity));
+}.bg-gray-900 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(17 24 39 / var(--tw-bg-opacity));
 }.bg-opacity-25 {
   --tw-bg-opacity: 0.25;
 }.bg-opacity-75 {
@@ -3514,8 +3533,13 @@ video {
 }.focus-within\:ring-sky-500:focus-within {
   --tw-ring-opacity: 1;
   --tw-ring-color: rgb(14 165 233 / var(--tw-ring-opacity));
+}.focus-within\:ring-orange-500:focus-within {
+  --tw-ring-opacity: 1;
+  --tw-ring-color: rgb(249 115 22 / var(--tw-ring-opacity));
 }.focus-within\:ring-offset-2:focus-within {
   --tw-ring-offset-width: 2px;
+}.focus-within\:ring-offset-gray-100:focus-within {
+  --tw-ring-offset-color: #f3f4f6;
 }.hover\:border-gray-300:hover {
   --tw-border-opacity: 1;
   border-color: rgb(209 213 219 / var(--tw-border-opacity));
@@ -3711,6 +3735,8 @@ video {
   color: rgb(31 41 55 / var(--tw-text-opacity));
 }.disabled\:opacity-25:disabled {
   opacity: 0.25;
+}.group:hover .group-hover\:opacity-75 {
+  opacity: 0.75;
 }.dark .dark\:block {
   display: block;
 }.dark .dark\:hidden {
@@ -3858,6 +3884,8 @@ video {
     --tw-scale-x: 1;
     --tw-scale-y: 1;
     transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+  }.sm\:grid-cols-5 {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
   }.sm\:items-start {
     align-items: flex-start;
   }.sm\:items-center {
@@ -3991,6 +4019,8 @@ video {
     flex-grow: 1;
   }.lg\:flex-grow-0 {
     flex-grow: 0;
+  }.lg\:grid-cols-6 {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
   }.lg\:flex-row {
     flex-direction: row;
   }.lg\:items-center {
