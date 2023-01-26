@@ -12,6 +12,7 @@
     @stack('styles')
     <livewire:styles />
 
+    <link rel="stylesheet" href="https://cdn.materialdesignicons.com/6.5.95/css/materialdesignicons.min.css">
     <script src="https://kit.fontawesome.com/26b11da1dc.js" crossorigin="anonymous"></script>
 </head>
 
