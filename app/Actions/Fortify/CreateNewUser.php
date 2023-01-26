@@ -26,14 +26,14 @@ class CreateNewUser implements CreatesNewUsers
                 'string',
                 'alpha_dash',
                 'max:255',
-                'unique:users'
+                'unique:users',
             ],
             'email' => [
                 'required',
                 'string',
                 'email',
                 'max:255',
-                'unique:users'
+                'unique:users',
             ],
             'password' => $this->passwordRules(),
             'terms' => Jetstream::hasTermsAndPrivacyPolicyFeature() ? ['accepted', 'required'] : '',

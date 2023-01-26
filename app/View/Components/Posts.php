@@ -24,7 +24,6 @@ class Posts extends Component
      */
     public function render()
     {
-
         $posts = Post::limit(2)->get();
 
         return view('components.posts', [

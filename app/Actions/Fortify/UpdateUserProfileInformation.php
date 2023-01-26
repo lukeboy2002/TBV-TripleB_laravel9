@@ -23,7 +23,7 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
                 'string',
                 'alpha_dash',
                 'max:255',
-                Rule::unique('users')->ignore($user->id)
+                Rule::unique('users')->ignore($user->id),
             ],
             'nickname' => [
                 'nullable',
@@ -49,12 +49,12 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
                 'required',
                 'email',
                 'max:255',
-                Rule::unique('users')->ignore($user->id)
+                Rule::unique('users')->ignore($user->id),
             ],
             'photo' => [
                 'nullable',
                 'mimes:jpg,jpeg,png',
-                'max:1024'
+                'max:1024',
             ],
         ])->validateWithBag('updateProfileInformation');
 
