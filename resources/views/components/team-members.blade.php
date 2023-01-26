@@ -1,6 +1,6 @@
 <div class="max-w-7xl mx-auto px-4 py-6">
     <div class="border-l-4 border-orange-500 pl-4 flex justify-between items-center">
-        <x-links.default class="text-2xl" href="#">Ons Team</x-links.default>
+        <x-links.header href="#">Ons Team</x-links.header>
     </div>
 
     <div class="pt-2 border-b border-gray-200 dark:border-gray-600"></div>
