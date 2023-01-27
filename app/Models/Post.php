@@ -26,7 +26,7 @@ class Post extends Model implements HasMedia
     protected $with = [
         'category',
         'author',
-        // 'comments',
+         'comments',
     ];
 
     public function scopeFilter($query, array $filters)
@@ -55,10 +55,10 @@ class Post extends Model implements HasMedia
         return $this->belongsTo(User::class, 'user_id');
     }
 
-//    public function comments()
-//    {
-//        return $this->hasMany(Comment::class);
-//    }
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
+    }
 
     public function sluggable(): array
     {

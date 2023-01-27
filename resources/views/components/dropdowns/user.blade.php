@@ -1,29 +1,19 @@
-@props(['trigger'])
-
-<div x-data="{ show: false }" @keydown.escape="show = false" @click.away="show = false" class="relative inline-block text-left">
-    {{-- Trigger --}}
-
-    <div @click="show = !show">
-        {{ $trigger }}
+<x-dropdowns.default>
+    <x-slot name="trigger">
+        <button type="button" class="mr-2 bg-white rounded-full flex text-md focus:outline-none focus:ring-2 focus:ring-orange-500" id="menu-button" aria-expanded="true" aria-haspopup="true">
+            <img class="h-10 w-10 rounded-full" src="{{ current_user()->profile_photo_url }}" alt="Avatar">
+        </button>
+    </x-slot>
+    <div class="px-3 py-2 font-bold text-xs text-orange-500">
+        Manage Account
     </div>
-
-    {{-- Links --}}
-    <div x-show="show"
-         x-transition:enter="transition ease-out duration-300 transform"
-         x-transition:enter-start="opacity-0 scale-95"
-         x-transition:enter-end="opacity-100 scale-100"
-         x-transition:leave="transition ease-in duration-300 transform"
-         x-transition:leave-start="opacity-100 scale-100"
-         x-transition:leave-end="opacity-0 scale-95"
-         class="origin-top-right absolute z-50 right-0 mt-2 w-56 max-h-52 overflow-auto shadow-lg bg-white dark:bg-gray-800 focus:outline-none"
-         role="menu"
-         aria-orientation="vertical"
-         aria-labelledby="menu-button"
-         tabindex="-1"
-         style="display: none"
-    >
-        <div role="none">
-            {{ $slot }}
-        </div>
-    </div>
-</div>
+    @unlessrole('User')
+    {{--                <x-links.button class="block" href="#">Settings</x-links.button>--}}
+    {{--                <x-links.square class="block" href="{{ route('admin.settings') }}">Settings</x-links.square>--}}
+    @endunlessrole
+    <x-links.btn-default class="block" href="{{ route('profile.show', current_user()->username) }}">Your Profile</x-links.btn-default>
+    <x-links.btn-default class="block" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Sign out</x-links.btn-default>
+    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+        @csrf
+    </form>
+</x-dropdowns.default>
