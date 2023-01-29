@@ -8,8 +8,8 @@
         Manage Account
     </div>
     @unlessrole('User')
-    {{--                <x-links.button class="block" href="#">Settings</x-links.button>--}}
-    {{--                <x-links.square class="block" href="{{ route('admin.settings') }}">Settings</x-links.square>--}}
+{{--        <x-links.btn-default class="block" href="/admin">Settings</x-links.btn-default>--}}
+        <x-links.btn-default class="block" href="{{ route('admin.settings') }}">Settings</x-links.btn-default>
     @endunlessrole
     <x-links.btn-default class="block" href="{{ route('profile.show', current_user()->username) }}">Your Profile</x-links.btn-default>
     <x-links.btn-default class="block" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Sign out</x-links.btn-default>

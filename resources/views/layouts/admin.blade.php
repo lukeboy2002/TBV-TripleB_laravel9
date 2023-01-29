@@ -12,35 +12,34 @@
     @stack('styles')
     <livewire:styles />
 
+    <link rel="stylesheet" href="https://cdn.materialdesignicons.com/6.5.95/css/materialdesignicons.min.css">
     <script src="https://kit.fontawesome.com/26b11da1dc.js" crossorigin="anonymous"></script>
 </head>
 
 <body class="antialiased relative bg-gray-100 dark:bg-neutral-900">
-<div class="min-h-screen flex flex-col">
+<div class="min-h-screen flex flex-row">
 
     <x-jet-banner />
-    <div class="w-screen mx-auto pt-0 flex justify-center">
-        <nav id="navbar" class="sticky top-0 z-40 w-full bg-white dark:bg-gray-800">
-            <x-main.header />
-            <x-main.menu />
-        </nav>
-    </div>
+    <!-- Desktop sidebar -->
+    <aside class="z-20 hidden w-64 overflow-y-auto md:block flex-shrink-0 bg-white dark:bg-gray-800">
+        <x-menus.admin-sidebar />
+    </aside>
 
-    <div class="lg:flex-grow">
-        <div class="md:grid md:grid-cols-12">
-            <div class="md:col-span-12">
-                {{ $slot }}
+    <div class="w-screen mx-auto pt-0 flex flex-col">
+        <nav id="navbar" class="sticky top-0 z-40 w-full bg-white dark:bg-gray-800">
+            <x-main.admin-menu />
+        </nav>
+        <div class="lg:flex-grow">
+            <div class="md:grid md:grid-cols-12">
+                <div class="md:col-span-12">
+                    {{ $slot }}
+                </div>
             </div>
         </div>
-
-        <!-- Sidebar start-->
-        <x-main.mobilemenu />
     </div>
-
-    <div class="w-screen mx-auto flex justify-center">
-        <x-main.footer />
-    </div>
+    <x-main.admin-mobilemenu />
 </div>
+
 
 <!-- Scripts -->
 <livewire:scripts />

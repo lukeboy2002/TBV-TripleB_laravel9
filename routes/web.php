@@ -29,7 +29,12 @@ Route::middleware([
     })->name('dashboard');
 });
 
+Route::prefix('admin')->name('admin.')->middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified', 'role:super-admin|admin|moderator|developer|member'])->group(function () {
 
+    Route::get('settings', function () {
+        return view('admin.dashboard');
+    })->name('settings');
+});
 
 //BLOG
 Route::get('posts', [PostController::class, 'index'])->name('post');

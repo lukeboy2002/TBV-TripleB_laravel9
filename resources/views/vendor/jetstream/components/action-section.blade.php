@@ -5,7 +5,7 @@
     </x-jet-section-title>
 
     <div class="mt-5 md:mt-0 md:col-span-2">
-        <x-cards.default>
+        <x-cards.default class="p-4 sm:p-6 md:p-8">
             {{ $content }}
         </x-cards.default>
     </div>
