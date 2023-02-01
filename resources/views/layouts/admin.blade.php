@@ -31,7 +31,7 @@
         </nav>
         <div class="lg:flex-grow">
             <div class="md:grid md:grid-cols-12">
-                <div class="md:col-span-12">
+                <div class="md:col-span-12 pt-2">
                     {{ $slot }}
                 </div>
             </div>

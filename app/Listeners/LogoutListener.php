@@ -3,9 +3,11 @@
 namespace App\Listeners;
 
 use App\Models\User;
+use Illuminate\Contracts\Queue\ShouldQueue;
+use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Support\Facades\Auth;
 
-class LoginListener
+class LogoutListener
 {
     /**
      * Create the event listener.
@@ -26,10 +28,7 @@ class LoginListener
     public function handle($event)
     {
         $event->user->update([
-            'last_login_time' => now(),
-            'last_login_ip' => request()->getClientIp(),
-            'active' => true,
+            'active' => false,
         ]);
     }
 }
-

@@ -8,7 +8,7 @@ use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 
-class AdminSeeder extends Seeder
+class MemberSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -19,10 +19,10 @@ class AdminSeeder extends Seeder
     {
         // CREATE ADMINS & USERS
         $user = User::create([
-            'username' => 'admin',
-            'email' => 'admin@admin.com',
+            'username' => 'member',
+            'email' => 'member@menber.com',
             'email_verified_at' => now(),
-            'password' => Hash::make('adminadmin'),
+            'password' => Hash::make('membermember'),
             'remember_token' => Str::random(10),
         ]);
 
@@ -36,7 +36,7 @@ class AdminSeeder extends Seeder
         $user->profile_photo_path = $imagePath;
         $user->save();
 
-        $role = Role::select('id')->where('name', 'admin')->first();
+        $role = Role::select('id')->where('name', 'member')->first();
 
         $user->roles()->attach($role);
     }

@@ -16,9 +16,14 @@ class DatabaseSeeder extends Seeder
     {
         $this->call(RolesAndPermissionsSeeder::class);
         $this->call(SuperAdminSeeder::class);
-        $this->call(AdminSeeder::class);
+        $this->call(MemberSeeder::class);
         $this->call(ModeratorSeeder::class);
         $this->call(DeveloperSeeder::class);
         $this->call(UserSeeder::class);
+        $this->call(PostSeeder::class);
+        $this->call(CategorySeeder::class);
+        $this->call(CommentSeeder::class);
+        $this->call(SponsorSeeder::class);
+        $this->call(SlideSeeder::class);
     }
 }

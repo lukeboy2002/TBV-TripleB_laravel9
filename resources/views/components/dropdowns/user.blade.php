@@ -7,7 +7,7 @@
     <div class="px-3 py-2 font-bold text-xs text-orange-500">
         Manage Account
     </div>
-    @unlessrole('User')
+    @unlessrole('user')
 {{--        <x-links.btn-default class="block" href="/admin">Settings</x-links.btn-default>--}}
         <x-links.btn-default class="block" href="{{ route('admin.settings') }}">Settings</x-links.btn-default>
     @endunlessrole

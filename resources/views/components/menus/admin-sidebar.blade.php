@@ -5,15 +5,28 @@
         </a>
         <ul class="mt-6">
             <li class="relative px-6 py-3">
-                <x-links.btn-default class="block" href="/" :active="request()->routeIs('admin.dashboard')">
+                <x-links.btn-default class="block" href="{{ route('admin.settings') }}" :active="request()->routeIs('admin.settings')">
                     <i class="fa-solid fa-house mr-4"></i>Dashboard
                 </x-links.btn-default>
             </li>
+            <hr class="h-px m-4 bg-gray-200 border-0 dark:bg-gray-700">
+
             <li class="relative px-6 py-3">
-                <x-links.btn-default class="block" href="/">
-                    <i class="fa-brands fa-wpforms mr-4"></i>Forms
-                </x-links.btn-default>
+                <x-dropdowns.sidemenu>
+                    <x-slot name="trigger">
+                        <x-buttons.dropdown :active="request()->routeIs('admin.members*', 'admin.users*')">
+                            <i class="fa-solid fa-users-gear mr-4"></i>User Management
+                        </x-buttons.dropdown>
+                    </x-slot>
+                    <x-links.default class="block" href="{{ route('admin.users.index') }}" :active="request()->routeIs('admin.users*')">
+                        <i class="fa-solid fa-users mr-4"></i>Users
+                    </x-links.default>
+                    <x-links.default class="block" href="{{ route('admin.members.index') }}" :active="request()->routeIs('admin.members*')">
+                        <i class="fa-solid fa-people-group mr-4"></i>Members
+                    </x-links.default>
+                </x-dropdowns.sidemenu>
             </li>
+
             <li class="relative px-6 py-3">
                 <x-links.btn-default class="block" href="/">
                     <i class="fa-regular fa-address-card mr-4"></i>Cards

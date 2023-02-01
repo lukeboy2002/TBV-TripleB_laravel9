@@ -24,7 +24,7 @@ return new class extends Migration
             $table->string('profile_picture_path', 2048)->default('/images/profiles/default.png');
             $table->string('profile_banner_path', 2048)->default('images/banners/default.jpg');
             $table->string('password');
-            $table->boolean('logged_in')->default(0);
+            $table->boolean('active')->default(false);
             $table->timestamp('last_login_time')->nullable();
             $table->string('last_login_ip')->nullable();
             $table->softDeletes();
