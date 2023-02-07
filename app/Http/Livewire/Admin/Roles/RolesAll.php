@@ -11,10 +11,9 @@ class RolesAll extends Component
     use WithPagination;
 
     public $showModal = false;
-    public $search;
     public $sortField;
     public $sortAsc = true;
-    protected $queryString = ['search', 'sortAsc', 'sortField'];
+    protected $queryString = ['sortAsc', 'sortField'];
 
     public function sortBy($field)
     {
@@ -36,9 +35,6 @@ class RolesAll extends Component
     {
         return view('livewire.admin.roles.roles-all', [
             'roles' => Role::orderby('created_at')
-                ->where(function ($query) {
-                    $query->where('name', 'like', '%' . $this->search . '%');
-                })
                 ->when($this->sortField, function ($query) {
                     $query->orderBy($this->sortField, $this->sortAsc ? 'asc' : 'desc');
                 })

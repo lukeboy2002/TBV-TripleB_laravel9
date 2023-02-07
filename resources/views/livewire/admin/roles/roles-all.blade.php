@@ -2,10 +2,8 @@
     <x-main.loading />
 
     <div class="overflow-x-auto relative shadow-md sm:rounded-lg px-4 py-2">
-        <div class="flex justify-between items-center space-x-4 pb-4">
-            <div>
-                <input wire:model="search" type="text" name="search" id="search" class="rounded-lg" placeholder="Search member">
-            </div>
+        <div class="flex justify-end items-center space-x-4 pb-4">
+            <x-links.btn-edit-small href="{{route('admin.roles.create')}}" class="rounded-lg">New Role</x-links.btn-edit-small>
         </div>
 
         <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
@@ -22,52 +20,24 @@
                             />
                         </div>
                     </th>
-                    <th scope="col" class="px-6 py-3">Permissions</th>
-                    <th scope="col" class="px-6 py-3">
-                        <span class="sr-only">Edit</span>
+                    <th scope="col" class="flex justify-end px-6 py-3">actions
                     </th>
                 </tr>
                 </thead>
                 <tbody>
                 @forelse($roles as $role)
                     <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-                        <td class="px-6 py-4 block w-48">
-                        @if($role->id == 1)
-                            <x-pills.yellow>
-                                {{ $role->name }}
-                            </x-pills.yellow>
-                        @elseif ($role->id == 2)
-                            <x-pills.red>
-                                {{ $role->name }}
-                            </x-pills.red>
-                        @elseif ($role->id == 3)
-                            <x-pills.indigo>
-                                {{ $role->name }}
-                            </x-pills.indigo>
-                        @elseif ($role->id == 4)
-                            <x-pills.purple>
-                                {{ $role->name }}
-                            </x-pills.purple>
-                        @elseif ($role->id == 5)
-                            <x-pills.pink>
-                                {{ $role->name }}
-                            </x-pills.pink>
-                        @endif
-                        <td class="px-6 py-4">
-                            <div class="flex items-center">
-                            @foreach( $role->permissions as $permission )
-                                <x-pills.green>{{ $permission->name }}</x-pills.green>
-                            @endforeach
-                            </div>
+                        <td class="px-6 py-4 text-gray-700 dark:text-white">
+                            {{ $role->name }}
                         </td>
-                        <td class="px-6 py-4 text-right space-x-4 flex">
+                        <td class="flex items-center justify-end px-6 py-4 space-x-4">
                             <x-links.btn-edit-small class="rounded-lg" href="{{ route('admin.roles.edit' , $role->id) }}"><i class="fa-solid fa-pen-to-square"></i></x-links.btn-edit-small>
                             <x-buttons.danger-small type="button" class="rounded-lg" wire:click="deleteId({{ $role->id }})"><i class="fa-solid fa-trash-can-arrow-up"></i></x-buttons.danger-small>
                         </td>
                     </tr>
                 @empty
                     <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-                        <td colspan="5" class="px-6 py-4">
+                        <td colspan="2" class="px-6 py-4">
                             There are no members online
                         </td>
                     </tr>
