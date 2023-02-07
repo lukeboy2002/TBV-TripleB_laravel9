@@ -14,6 +14,22 @@
             <li class="relative px-6 py-3">
                 <x-dropdowns.sidemenu>
                     <x-slot name="trigger">
+                        <x-buttons.dropdown :active="request()->routeIs('admin.roles*', 'admin.permissions*')">
+                            <i class="fa-solid fa-users-gear mr-4"></i>Access Management
+                        </x-buttons.dropdown>
+                    </x-slot>
+                    <x-links.default class="block" href="{{ route('admin.roles.index') }}" :active="request()->routeIs('admin.roles*')">
+                        <i class="fa-solid fa-users mr-4"></i>Roles
+                    </x-links.default>
+{{--                    <x-links.default class="block" href="{{ route('admin.permissions.index') }}" :active="request()->routeIs('admin.permissions*')">--}}
+{{--                        <i class="fa-solid fa-people-group mr-4"></i>Members--}}
+{{--                    </x-links.default>--}}
+                </x-dropdowns.sidemenu>
+            </li>
+
+            <li class="relative px-6 py-3">
+                <x-dropdowns.sidemenu>
+                    <x-slot name="trigger">
                         <x-buttons.dropdown :active="request()->routeIs('admin.members*', 'admin.users*')">
                             <i class="fa-solid fa-users-gear mr-4"></i>User Management
                         </x-buttons.dropdown>

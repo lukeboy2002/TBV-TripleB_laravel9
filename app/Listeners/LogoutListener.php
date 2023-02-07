@@ -30,5 +30,9 @@ class LogoutListener
         $event->user->update([
             'active' => false,
         ]);
+
+//        User::where('id', Auth::user()->id)->update([
+//            'active' => false,
+//        ]);
     }
 }

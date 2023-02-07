@@ -1,21 +1,20 @@
 <?php
 
-namespace App\Http\Livewire\Admin\Users;
+namespace App\Http\Livewire\Admin\Roles;
 
-use App\Models\User;
+use App\Models\Role;
 use Livewire\Component;
 use Livewire\WithPagination;
 
-class UsersAll extends Component
+class RolesAll extends Component
 {
     use WithPagination;
 
     public $showModal = false;
-    public $active = true;
     public $search;
     public $sortField;
     public $sortAsc = true;
-    protected $queryString = ['search', 'active', 'sortAsc', 'sortField'];
+    protected $queryString = ['search', 'sortAsc', 'sortField'];
 
     public function sortBy($field)
     {
@@ -35,19 +34,16 @@ class UsersAll extends Component
 
     public function render()
     {
-        return view('livewire.admin.users.users-all', [
-            'users' => User::role('user')
+        return view('livewire.admin.roles.roles-all', [
+            'roles' => Role::orderby('created_at')
                 ->where(function ($query) {
-                    $query->where('username', 'like', '%' . $this->search . '%')
-                        ->orWhere('email', 'like', '%' . $this->search . '%');
+                    $query->where('name', 'like', '%' . $this->search . '%');
                 })
-                ->where('active', $this->active)
                 ->when($this->sortField, function ($query) {
                     $query->orderBy($this->sortField, $this->sortAsc ? 'asc' : 'desc');
                 })
-                ->with('roles')
-                ->withTrashed()
-                ->paginate(10),
+                ->with('permissions')
+                ->paginate(10)
         ]);
     }
 
@@ -59,11 +55,11 @@ class UsersAll extends Component
 
     public function delete()
     {
-        User::find($this->deleteId)->delete();
+        Role::find($this->deleteId)->delete();
 
         $this->showModal = false;
 
-        session()->flash('success', 'User deleted successfully!');
+        session()->flash('success', 'Role deleted successfully!');
     }
 
     public function close()

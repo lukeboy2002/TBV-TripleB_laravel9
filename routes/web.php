@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\admin\MemberController;
+use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\admin\UserController;
 use App\Http\Controllers\PostCommentController;
 use App\Http\Controllers\PostController;
@@ -22,13 +23,19 @@ Route::get('/', function () {
     return view('welcome');
 })->name('home');
 
+//BLOG
+Route::get('posts', [PostController::class, 'index'])->name('post');
+Route::get('posts/{post:slug}', [PostController::class, 'show'])->name('post.show');
+
+//COMMENTS
+Route::post('posts/{post:slug}/comments', [PostCommentController::class, 'store']);
+
 Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified',])->group(function () {
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
 
     Route::get('status', [profileController::class, 'userOnlineStatus']);
-
 });
 
 Route::prefix('admin')->name('admin.')->middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified', 'role:super-admin|admin|moderator|developer|member'])->group(function () {
@@ -49,9 +56,7 @@ Route::prefix('admin')->name('admin.')->middleware(['auth:sanctum', config('jets
     Route::resource('members', MemberController::class);
 });
 
-//BLOG
-Route::get('posts', [PostController::class, 'index'])->name('post');
-Route::get('posts/{post:slug}', [PostController::class, 'show'])->name('post.show');
-
-//COMMENTS
-Route::post('posts/{post:slug}/comments', [PostCommentController::class, 'store']);
+Route::prefix('admin')->name('admin.')->middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified', 'role:super-admin|admin'])->group(function () {
+    //ROLES
+    Route::resource('roles', RoleController::class);
+});
