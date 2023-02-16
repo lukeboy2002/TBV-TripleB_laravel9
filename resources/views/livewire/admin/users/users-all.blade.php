@@ -90,12 +90,12 @@
                         <td class="px-6 py-4">
                             @if ($user->active)
                                 <x-pills.green>
-                                    Active
+                                    Online
                                 </x-pills.green>
                             </span>
                             @else
                                 <x-pills.red class="">
-                                    Inactive
+                                    Offline
                                 </x-pills.red>
                             @endif
                         </td>

@@ -36,7 +36,7 @@ class UsersAll extends Component
     public function render()
     {
         return view('livewire.admin.users.users-all', [
-            'users' => User::role('user')
+            'users' => User::orderby('created_at')
                 ->where(function ($query) {
                     $query->where('username', 'like', '%' . $this->search . '%')
                         ->orWhere('email', 'like', '%' . $this->search . '%');
