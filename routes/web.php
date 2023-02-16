@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\Admin\BlogControler;
 use App\Http\Controllers\admin\MemberController;
+use App\Http\Controllers\Admin\PermissionController;
 use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\admin\UserController;
 use App\Http\Controllers\PostCommentController;
@@ -54,9 +56,15 @@ Route::prefix('admin')->name('admin.')->middleware(['auth:sanctum', config('jets
     Route::get('members/trashed/{id}/restore', [MemberController::class, 'trashedRestore'])->name('members.trashed.restore');
     Route::get('members/trashed/{id}/forse_delete', [MemberController::class, 'trashedDelete'])->name('members.trashed.destroy');
     Route::resource('members', MemberController::class);
+    //BLOG
+    Route::resource('posts', BlogControler::class);
+
 });
 
 Route::prefix('admin')->name('admin.')->middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified', 'role:super-admin|admin'])->group(function () {
     //ROLES
     Route::resource('roles', RoleController::class);
+    //PERMISSIONS
+    Route::resource('permissions', PermissionController::class);
+
 });

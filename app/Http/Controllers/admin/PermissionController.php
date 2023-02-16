@@ -4,10 +4,9 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Permission;
-use App\Models\Role;
 use Illuminate\Http\Request;
 
-class RoleController extends Controller
+class PermissionController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,7 +15,7 @@ class RoleController extends Controller
      */
     public function index()
     {
-        return view('admin.roles.index');
+        return view('admin.permissions.index');
     }
 
     /**
@@ -26,7 +25,7 @@ class RoleController extends Controller
      */
     public function create()
     {
-        return view('admin.roles.create');
+        return view('admin.permissions.create');
     }
 
     /**
@@ -46,16 +45,9 @@ class RoleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Role $role)
+    public function show($id)
     {
-        return view('admin.roles.show', compact('role'));
-
-//        $role = Role::get();
-//
-//        return view('admin.roles.show', [
-//            'role' => $role,
-//        ]);
-
+        //
     }
 
     /**
@@ -64,9 +56,9 @@ class RoleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Role $role)
+    public function edit(Permission $permission)
     {
-        return view('admin.roles.edit', compact('role'));
+        return view('admin.permissions.edit', compact('permission'));
     }
 
     /**

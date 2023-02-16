@@ -15,15 +15,15 @@
                 <x-dropdowns.sidemenu>
                     <x-slot name="trigger">
                         <x-buttons.dropdown :active="request()->routeIs('admin.roles*', 'admin.permissions*')">
-                            <i class="fa-solid fa-users-gear mr-4"></i>Access Management
+                            <i class="fa-solid fa-gears mr-4"></i>Access Management
                         </x-buttons.dropdown>
                     </x-slot>
                     <x-links.default class="block" href="{{ route('admin.roles.index') }}" :active="request()->routeIs('admin.roles*')">
-                        <i class="fa-solid fa-users mr-4"></i>Roles
+                        <i class="fa-solid fa-user-gear mr-4"></i>Roles
                     </x-links.default>
-{{--                    <x-links.default class="block" href="{{ route('admin.permissions.index') }}" :active="request()->routeIs('admin.permissions*')">--}}
-{{--                        <i class="fa-solid fa-people-group mr-4"></i>Members--}}
-{{--                    </x-links.default>--}}
+                    <x-links.default class="block" href="{{ route('admin.permissions.index') }}" :active="request()->routeIs('admin.permissions*')">
+                        <i class="fa-solid fa-list-check mr-4"></i>Permissions
+                    </x-links.default>
                 </x-dropdowns.sidemenu>
             </li>
 
@@ -44,8 +44,8 @@
             </li>
 
             <li class="relative px-6 py-3">
-                <x-links.btn-default class="block" href="/">
-                    <i class="fa-regular fa-address-card mr-4"></i>Cards
+                <x-links.btn-default class="block" href="{{ route('admin.posts.index') }}" :active="request()->routeIs('admin.posts*')">
+                    <i class="fa-solid fa-blog mr-4"></i>BlogPost
                 </x-links.btn-default>
             </li>
             <li class="relative px-6 py-3">

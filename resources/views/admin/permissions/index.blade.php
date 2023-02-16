@@ -1,5 +1,5 @@
 <x-admin-layout>
     <div class="flex flex-col">
-        <livewire:admin.roles.roles-form />
+        <livewire:admin.permissions.permissions-all />
     </div>
 </x-admin-layout>
