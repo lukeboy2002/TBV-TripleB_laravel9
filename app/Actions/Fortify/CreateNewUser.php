@@ -48,7 +48,7 @@ class CreateNewUser implements CreatesNewUsers
         //generate image
         $username = get_initials($user->username);
         $id = $user->id.'.png';
-        $path = '/images/avatars/';
+        $path = '/profile-photos/';
         $imagePath = create_avatar($username, $id, $path);
 
         //save image

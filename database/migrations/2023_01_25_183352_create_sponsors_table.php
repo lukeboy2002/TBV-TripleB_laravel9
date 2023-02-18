@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('name')->unique();
             $table->string('link')->unique();
-            $table->string('thumbnail_path', 2048)->nullable();
+            $table->string('image', 2048)->nullable();
             $table->softDeletes();
             $table->timestamps();
         });

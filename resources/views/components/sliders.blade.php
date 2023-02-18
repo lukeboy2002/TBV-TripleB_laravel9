@@ -6,7 +6,7 @@
             <div class="carousel-item relative float-left w-full {{ $i == '1' ? 'active' : ''}}">
                 @php $i++; @endphp
                 <img
-                    src="{{ asset('storage/'.$slide->photo_path) }}"
+                    src="{{ asset('storage'.$slide->image) }}"
                     class="block w-full h-96 object-center object-cover"
                     alt="$slide->title"
                 />

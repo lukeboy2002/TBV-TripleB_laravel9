@@ -19,17 +19,17 @@ class MemberSeeder extends Seeder
     {
         // CREATE ADMINS & USERS
         $user = User::create([
-            'username' => 'member',
-            'email' => 'member@menber.com',
+            'username' => 'antoine',
+            'email' => 'antoine@tbv-tripleb.nl',
             'email_verified_at' => now(),
-            'password' => Hash::make('membermember'),
+            'password' => Hash::make('antoineantoine'),
             'remember_token' => Str::random(10),
         ]);
 
         //generate image
         $username = get_initials($user->username);
         $id = $user->id.'.png';
-        $path = '/images/avatars/';
+        $path = '/profile-photos/';
         $imagePath = create_avatar($username, $id, $path);
 
         //save image

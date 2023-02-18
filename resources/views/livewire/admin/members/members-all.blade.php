@@ -4,7 +4,7 @@
     <div class="overflow-x-auto relative shadow-md sm:rounded-lg px-4 py-2">
         <div class="flex justify-between items-center space-x-4 pb-4">
             <div>
-                <input wire:model="search" type="text" name="search" id="search" class="rounded-lg" placeholder="Search member">
+                <input wire:model="search" type="text" name="search" id="search" class="rounded-lg" placeholder="Search user">
             </div>
             <div>
                 <label for="active" class="text-gray-700 dark:text-white font-medium mr-2">Online?</label>
@@ -53,8 +53,10 @@
                 <tbody>
                 @forelse($users as $user)
                     <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-                        <td class="px-6 py-4">
-                            <img class="rounded-full" src="{{asset('storage'.$user->profile_photo_path)}}" alt="avatar">
+                        <td class="px-6 py-4 flex space-x-4">
+
+                                <img class="rounded-full h-12 w-12" src="{{asset('storage/'.$user->profile_photo_path)}}" alt="Profile">
+
                         </td>
                         <td class="px-6 py-4">
                             {{ $user->username }}
@@ -64,38 +66,18 @@
                         </td>
                         <td class="px-6 py-4">
                             @foreach ($user->roles as $role)
-                                @if($role->id == 1)
-                                    <x-pills.red>
-                                        {{ $role->name }}
-                                    </x-pills.red>
-                                @elseif ($role->id == 2)
-                                    <x-pills.pink>
-                                        {{ $role->name }}
-                                    </x-pills.pink>
-                                @elseif ($role->id == 3)
-                                    <x-pills.indigo>
-                                        {{ $role->name }}
-                                    </x-pills.indigo>
-                                @elseif ($role->id == 4)
-                                    <x-pills.purple>
-                                        {{ $role->name }}
-                                    </x-pills.purple>
-                                @elseif ($role->id == 5)
-                                    <x-pills.yellow>
-                                        {{ $role->name }}
-                                    </x-pills.yellow>
-                                @endif
+                                {{ $role->name }}
                             @endforeach
                         </td>
                         <td class="px-6 py-4">
                             @if ($user->active)
                                 <x-pills.green>
-                                    Active
+                                    Online
                                 </x-pills.green>
                                 </span>
                             @else
                                 <x-pills.red class="">
-                                    Inactive
+                                    Offline
                                 </x-pills.red>
                             @endif
                         </td>
@@ -120,7 +102,7 @@
                 @empty
                     <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
                         <td colspan="8" class="px-6 py-4">
-                            There are no members online
+                            There are no users online
                         </td>
                     </tr>
                 @endforelse

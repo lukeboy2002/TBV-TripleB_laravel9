@@ -30,15 +30,28 @@
             <li class="relative px-6 py-3">
                 <x-dropdowns.sidemenu>
                     <x-slot name="trigger">
-                        <x-buttons.dropdown :active="request()->routeIs('admin.members*', 'admin.users*')">
+                        <x-buttons.dropdown :active="request()->routeIs('admin.members*')">
+                            <i class="fa-solid fa-people-roof mr-4"></i>Members Management
+                        </x-buttons.dropdown>
+                    </x-slot>
+                    <x-links.default class="block" href="{{ route('admin.members.index') }}" :active="request()->routeIs('admin.members*')">
+                        <i class="fa-solid fa-people-group mr-4"></i>All members
+                    </x-links.default>
+                    <x-links.default class="block" href="{{ route('admin.members.create') }}" :active="request()->routeIs('admin.members*')">
+                        <i class="fa-solid fa-person-circle-plus mr-4"></i>New member
+                    </x-links.default>
+                </x-dropdowns.sidemenu>
+            </li>
+
+            <li class="relative px-6 py-3">
+                <x-dropdowns.sidemenu>
+                    <x-slot name="trigger">
+                        <x-buttons.dropdown :active="request()->routeIs('admin.users*')">
                             <i class="fa-solid fa-users-gear mr-4"></i>User Management
                         </x-buttons.dropdown>
                     </x-slot>
                     <x-links.default class="block" href="{{ route('admin.users.index') }}" :active="request()->routeIs('admin.users*')">
                         <i class="fa-solid fa-users mr-4"></i>Users
-                    </x-links.default>
-                    <x-links.default class="block" href="{{ route('admin.members.index') }}" :active="request()->routeIs('admin.members*')">
-                        <i class="fa-solid fa-people-group mr-4"></i>Members
                     </x-links.default>
                 </x-dropdowns.sidemenu>
             </li>

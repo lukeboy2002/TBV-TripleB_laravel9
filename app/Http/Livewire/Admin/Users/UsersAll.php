@@ -11,7 +11,7 @@ class UsersAll extends Component
     use WithPagination;
 
     public $showModal = false;
-    public $active = true;
+    public $active = false;
     public $search;
     public $sortField;
     public $sortAsc = true;
@@ -36,7 +36,7 @@ class UsersAll extends Component
     public function render()
     {
         return view('livewire.admin.users.users-all', [
-            'users' => User::orderby('created_at')
+            'users' => User::role('user')
                 ->where(function ($query) {
                     $query->where('username', 'like', '%' . $this->search . '%')
                         ->orWhere('email', 'like', '%' . $this->search . '%');

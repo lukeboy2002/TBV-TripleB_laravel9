@@ -23,7 +23,7 @@
     </div>
 </div>
 <a href="{{ route('post.show', $post->slug) }}">
-    <img class="mx-auto max-h-96 w-full object-cover" src="{{ asset('storage/' . $post->thumbnail_path) }}" alt="{{ $post->title }}">
+    <img class="mx-auto max-h-96 w-full object-cover" src="{{ asset('storage/' . $post->featured_image) }}" alt="{{ $post->title }}">
 </a>
 <div class="p-5 text-sm md:flex md:justify-between md:items-center">
     <p class="text-gray-500"><i class="fa-solid fa-comments mr-2"></i>{{ $post->comments->count() }} comment(s)</p>

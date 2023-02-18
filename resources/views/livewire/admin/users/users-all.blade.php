@@ -15,7 +15,6 @@
             </div>
         </div>
 
-
         <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
             <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
                 <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
@@ -41,7 +40,6 @@
                             />
                         </div>
                     </th>
-                    <th scope="col" class="px-6 py-3">Role</th>
                     <th scope="col" class="px-6 py-3">Status</th>
                     <th scope="col" class="px-6 py-3">Last Login</th>
 
@@ -61,31 +59,6 @@
                         </td>
                         <td class="px-6 py-4">
                             {{ $user->email }}
-                        </td>
-                        <td class="px-6 py-4">
-                            @foreach ($user->roles as $role)
-                                @if($role->id == 1)
-                                    <x-pills.yellow>
-                                        {{ $role->name }}
-                                    </x-pills.yellow>
-                                @elseif ($role->id == 2)
-                                    <x-pills.red>
-                                        {{ $role->name }}
-                                    </x-pills.red>
-                                @elseif ($role->id == 3)
-                                    <x-pills.indigo>
-                                        {{ $role->name }}
-                                    </x-pills.indigo>
-                                @elseif ($role->id == 4)
-                                    <x-pills.purple>
-                                        {{ $role->name }}
-                                    </x-pills.purple>
-                                @elseif ($role->id == 5)
-                                    <x-pills.pink>
-                                        {{ $role->name }}
-                                    </x-pills.pink>
-                                @endif
-                            @endforeach
                         </td>
                         <td class="px-6 py-4">
                             @if ($user->active)

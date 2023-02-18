@@ -19,7 +19,7 @@ class SlideFactory extends Factory
         return [
             'title' => fake()->title(),
             'subtitle' => fake()->name(),
-            'photo_path' => fake()->imageUrl(400, 300),
+            'image' => fake()->imageUrl(400, 300),
         ];
     }
 }

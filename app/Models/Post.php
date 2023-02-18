@@ -19,7 +19,7 @@ class Post extends Model implements HasMedia
         'slug',
         'excerpt',
         'body',
-        'thumbnail_path',
+        'featured_image',
         'published',
     ];
 

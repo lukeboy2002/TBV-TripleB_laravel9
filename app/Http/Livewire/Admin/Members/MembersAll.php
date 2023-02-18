@@ -11,7 +11,7 @@ class MembersAll extends Component
     use WithPagination;
 
     public $showModal = false;
-    public $active = true;
+    public $active = false;
     public $search;
     public $sortField;
     public $sortAsc = true;
@@ -70,6 +70,4 @@ class MembersAll extends Component
     {
         $this->showModal = false;
     }
-
 }
-

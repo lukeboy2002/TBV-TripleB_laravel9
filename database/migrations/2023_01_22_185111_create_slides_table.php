@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->string('subtitle');
-            $table->string('photo_path', 2048)->nullable();
+            $table->string('image', 2048)->nullable();
             $table->boolean('status')->nullable()->default(false);
             $table->timestamps();
         });

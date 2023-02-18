@@ -13,6 +13,6 @@ class Sponsor extends Model
     protected $fillable = [
         'name',
         'link',
-        'thumbnail_path',
+        'image',
     ];
 }

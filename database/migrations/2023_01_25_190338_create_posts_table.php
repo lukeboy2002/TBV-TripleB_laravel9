@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('slug')->unique();
             $table->text('excerpt');
             $table->text('body');
-            $table->string('thumbnail_path')->nullable();
+            $table->string('featured_image')->nullable();
             $table->boolean('published')->nullable()->default(false);
             $table->integer('views');
             $table->timestamps();

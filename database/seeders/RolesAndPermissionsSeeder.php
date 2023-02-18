@@ -48,7 +48,7 @@ class RolesAndPermissionsSeeder extends Seeder
             $miscPermission,
         ]);
 
-        $superAdminRole = Role::create(['name' => 'super-admin'])->syncPermissions([
+        $superAdminRole = Role::create(['name' => 'admin'])->syncPermissions([
             $userPermission1,
             $userPermission2,
             $userPermission3,
@@ -81,15 +81,6 @@ class RolesAndPermissionsSeeder extends Seeder
             $adminPermission1,
             $adminPermission2,
             $userPermission1,
-        ]);
-        $moderatorRole = Role::create(['name' => 'moderator'])->syncPermissions([
-            $userPermission2,
-            $rolePermission2,
-            $permission2,
-            $adminPermission1,
-        ]);
-        $developerRole = Role::create(['name' => 'developer'])->syncPermissions([
-            $adminPermission1,
         ]);
     }
 }

@@ -17,19 +17,19 @@ class SponsorSeeder extends Seeder
         Sponsor::create([
             'name' => 'Bouwgroep Midden Brabant',
             'link' => 'https://www.bouwgroep-mb.nl/',
-            'thumbnail_path' => '/images/sponsors/1.jpeg',
+            'image' => '/sponsors/1.jpeg',
         ]);
 
         Sponsor::create([
             'name' => 'Engel',
             'link' => 'https://nl.linkedin.com/in/patrick-engel-a6008314',
-            'thumbnail_path' => '/images/sponsors/2.png',
+            'image' => '/sponsors/2.png',
         ]);
 
         Sponsor::create([
             'name' => 'LA-Online',
             'link' => 'http://la-online.nl',
-            'thumbnail_path' => '/images/sponsors/3.jpg',
+            'image' => '/sponsors/3.jpg',
         ]);
     }
 }

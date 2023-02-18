@@ -8,7 +8,7 @@ use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 
-class ModeratorSeeder extends Seeder
+class AdminSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -18,10 +18,10 @@ class ModeratorSeeder extends Seeder
     public function run()
     {
         $user = User::create([
-            'username' => 'moderator',
-            'email' => 'moderator@admin.com',
+            'username' => 'admin',
+            'email' => 'super@admin.com',
             'email_verified_at' => now(),
-            'password' => Hash::make('moderator'),
+            'password' => Hash::make('adminadmin'),
             'remember_token' => Str::random(10),
         ]);
 
@@ -29,14 +29,14 @@ class ModeratorSeeder extends Seeder
         //generate image
         $username = get_initials($user->username);
         $id = $user->id.'.png';
-        $path = '/images/avatars/';
+        $path = '/profile-photos/';
         $imagePath = create_avatar($username, $id, $path);
 
         //save image
         $user->profile_photo_path = $imagePath;
         $user->save();
 
-        $role = Role::select('id')->where('name', 'moderator')->first();
+        $role = Role::select('id')->where('name', 'admin')->first();
 
         $user->roles()->attach($role);
     }
