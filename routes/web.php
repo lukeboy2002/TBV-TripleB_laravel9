@@ -66,5 +66,5 @@ Route::prefix('admin')->name('admin.')->middleware(['auth:sanctum', config('jets
     Route::resource('roles', RoleController::class);
     //PERMISSIONS
     Route::resource('permissions', PermissionController::class);
-
+    //TEST NA RESTORE
 });
